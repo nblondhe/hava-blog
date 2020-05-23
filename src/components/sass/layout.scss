@@ -1,0 +1,81 @@
+@import "./variables";
+@import "./resets";
+
+
+body {
+  color: $text;
+
+  a {
+    color: $link;
+    font-weight: bold;
+  }
+  nav {
+    ul {
+      li {
+        a {
+          padding-bottom: 0.25rem;
+          &:hover,
+          &:active {
+            border-bottom: 3px solid $light-link-hover;
+          }
+        }
+      }
+    }
+  }
+  blockquote {
+    border-left: 0.3rem solid $light-link-hover;
+  }
+
+  .subtitle {
+    margin-top: 0;
+    font-size: 1rem;
+    color: $dim-text;
+  }
+
+  .mission {
+    color: $muted-text;
+  }
+
+  .vertical-div {
+    border-left: 2px solid $link;
+    margin: 0 0.75rem;
+  }
+
+  .social-divider {
+    border-left: 3px solid $link;
+    height: 1rem;
+    margin-top: .5rem;
+  }
+
+  .read-type {
+    border-bottom: 2px dotted $text;
+  }
+
+  .tag {
+    background: lighten($link, 60);
+    padding: .25em;
+    margin-right: .25rem;
+    &:hover {
+      background: lighten($link, 62);
+    }
+  }
+
+  .reading-box {
+    // border: 1px solid $link;
+    border-top: 1px solid $link; 
+    border-bottom: 1px solid $link; 
+    background: lighten($link, 60);
+    // border-radius: .75rem;
+    padding: 1rem;
+  }
+
+  .reading-item {
+    border-bottom: 1.5px dotted $text;
+  }
+}
+
+a:hover,
+a:active {
+  color: $light-link-hover;
+  text-decoration: none;
+}

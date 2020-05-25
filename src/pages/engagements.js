@@ -5,16 +5,16 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
-const ReadsIndex = ({ data, location }) => {
+const EngagementsIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const reads = data.allMarkdownRemark.edges
+  const engagements = data.allMarkdownRemark.edges
   
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Speaking" />
       <div style={{maxWidth: rhythm(30)}}>
-      <h1>Speaking Engagements</h1>
-      {reads.map(({ node }) => {
+      <h1 style={{textAlign: `center`, fontSize: rhythm(3 / 4 * 2)}}>Speaking Engagements</h1>
+      {engagements.map(({ node }) => {
         const mediums = node.frontmatter.mediums
 
         return (
@@ -38,11 +38,11 @@ const ReadsIndex = ({ data, location }) => {
               <div style={{ fontWeight: `800`}}>
                 <span> {node.frontmatter.date}</span>
                 <span className="vertical-div"></span>
-                <span style={{marginRight: `.25rem`}}>Engagement: </span>
+                <span style={{marginRight: `.25rem`}}></span>
                 {mediums.map((medium, index) => {
                   return (
                     <span key={medium} style={{marginRight: `.5rem`}} 
-                      className="read-type"> {medium} </span>
+                      className="engagement-type"> {medium} </span>
                   )
                 })}
               </div>
@@ -55,7 +55,7 @@ const ReadsIndex = ({ data, location }) => {
   )
 }
 
-export default ReadsIndex
+export default EngagementsIndex
 
 export const pageQuery = graphql`
   query {
@@ -65,7 +65,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fields: { collection: {eq: "read" }} }
+      filter: { fields: { collection: {eq: "engagement" }} }
       sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {

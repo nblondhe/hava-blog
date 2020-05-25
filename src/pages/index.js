@@ -1,10 +1,12 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import { rhythm } from "../utils/typography"
 import styled from 'styled-components';
+
+// import cvPDF from '../components/cv.pdf'
 
 const LandingContent = styled.div`
   display: grid;
@@ -105,8 +107,9 @@ const BlogIndex = ({ data, location }) => {
               increase your efficiency.
               </div>
               <div>
-                <Link
-                to="/cv/"
+                <a
+                // href={cvPDF}
+                href="#"
                 style={{
                   display: `block`,
                   fontSize: rhythm(1),
@@ -117,14 +120,13 @@ const BlogIndex = ({ data, location }) => {
                 <span
                   style={{
                     paddingBottom: rhythm(1 / 3),
-                    // borderBottom: `3px solid #8F2D56`,
                     border: `2px solid #8F2D56`,
                     padding: `.5rem 1.5rem`
                   }}
                 >
                   Curriculum Vitae
                 </span>
-              </Link>
+              </a>
               </div>
             </div>
           </div>

@@ -4,17 +4,7 @@ import { Link } from "gatsby"
 import { rhythm } from "../utils/typography"
 import "./sass/layout.scss"
 import styled from 'styled-components';
-
-// const LandingTitleHeading = styled.h1`
-//   ${{ ...scale(2.0) }};
-//   margin-bottom: rhythm(1);
-//   margin-top: 0;
-// `
-
-// const ContentTitleHeading = styled.h3`
-//   font-family: Montserrat, sans-serif;
-//   margin-top: 0;
-// `
+// import cvPDF from "./cv.pdf" 
 
 const SiteContainer = styled.div`
   margin-left: auto;
@@ -38,20 +28,17 @@ const Navigation = styled.nav`
     text-indent: 0;
     list-style-type: none;
 
-  li {
-    text-decoration: none;
-    font-size: ${rhythm(3/4)};
+    @media (max-width: 648px) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    li {
+      text-decoration: none;
+      font-size: ${rhythm(3/4)};
+    }
   }
 `
-
-// const Footer = styled.footer`
-//   display: flex;
-//   margin-top: ${rhythm(2)};
-//   align-items: center;
-//   text-align: center;
-//   justify-content: center;
-//   fontSize: rhythm(3 / 4)
-// `
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -68,11 +55,18 @@ const Layout = ({ location, title, children }) => {
         <ul>
           <li>
             <Link style={{ boxShadow: `none` }} to={"/"}>
-              CV
+              Home
             </Link>
           </li>
           <li>
-            <Link style={{ boxShadow: `none` }} to={"/reads/"}>
+            {/* <a href={cvPDF}> */}
+              <span style={{ boxShadow: `none`, color: `grey` }}>
+                CV
+              </span>
+            {/* </a> */}
+          </li>
+          <li>
+            <Link style={{ boxShadow: `none` }} to={"/engagements/"}>
               Speaking
             </Link>
           </li>
@@ -84,11 +78,6 @@ const Layout = ({ location, title, children }) => {
           <li>
             <Link style={{ boxShadow: `none` }} to={"/posts/"}>
               Blog
-            </Link>
-          </li>
-          <li>
-            <Link style={{ boxShadow: `none` }} to={"/contact/"}>
-              Contact
             </Link>
           </li>
         </ul>

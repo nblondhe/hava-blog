@@ -51,7 +51,6 @@ const BlogContent = styled.section`
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
-  const twitter = data.site.siteMetadata.social.twitter
   const { previous, next } = pageContext
   // const tags = post.frontmatter.tags
 
@@ -71,7 +70,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </p>
         </header>
         <BlogContent dangerouslySetInnerHTML={{ __html: post.html }} ></BlogContent>
-        Comment or Correction? <a href={`https://twitter.com/${twitter}`}> Let me know on Twitter.</a>
         <hr
           style={{
             marginBottom: rhythm(1),

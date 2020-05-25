@@ -47,7 +47,7 @@ body {
     margin-top: .5rem;
   }
 
-  .read-type {
+  .engagement-type {
     border-bottom: 2px dotted $text;
   }
 
@@ -60,16 +60,14 @@ body {
     }
   }
 
-  .reading-box {
-    // border: 1px solid $link;
+  .engagementing-box {
     border-top: 1px solid $link; 
     border-bottom: 1px solid $link; 
     background: lighten($link, 60);
-    // border-radius: .75rem;
     padding: 1rem;
   }
 
-  .reading-item {
+  .engagementing-item {
     border-bottom: 1.5px dotted $text;
   }
 }

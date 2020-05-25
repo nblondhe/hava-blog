@@ -7,7 +7,7 @@ import { rhythm } from "../utils/typography"
 
 import styled from 'styled-components'
 
-const ReadingLinkList = styled.ul`
+const EngagementingLinkList = styled.ul`
     margin: 0;
     padding: 0;
     text-indent: 0;
@@ -16,6 +16,7 @@ const ReadingLinkList = styled.ul`
 
     li {
       margin-left: 0;
+      font-size: ${rhythm(3 / 5)};
       text-decoration: none;
       margin-bottom: .25rem;
       padding-bottom: .25rem;
@@ -41,7 +42,7 @@ const GridContainer = styled.div`
 `
 
 
-const ReadContent = styled.section`
+const EngagementContent = styled.section`
     grid-column: span 8;
 `
 
@@ -53,17 +54,17 @@ const FooterNavList = styled.ul`
   padding: 0,
 `
 
-const ReadPostTemplate = ({ data, pageContext, location }) => {
-  const read = data.markdownRemark
+const EngagementPostTemplate = ({ data, pageContext, location }) => {
+  const engagement = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-  const links = read.frontmatter.links
+  const links = engagement.frontmatter.links
   
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
-        title={read.frontmatter.title}
-        description={read.frontmatter.description || read.excerpt}
+        title={engagement.frontmatter.title}
+        description={engagement.frontmatter.description || engagement.excerpt}
       />
       <article>
         <header>
@@ -73,20 +74,20 @@ const ReadPostTemplate = ({ data, pageContext, location }) => {
               marginBottom: 0,
             }}
           >
-            {read.frontmatter.title}
+            {engagement.frontmatter.title}
           </h1>
           <p>
-            {read.frontmatter.date}
+            {engagement.frontmatter.date}
           </p>
         </header>
-        <GridContainer className="reading-box">
-          <div style={{ gridColumn: `span 4`, fontWeight: `bold`, fontSize: rhythm(1 / 2)}}>
+        <GridContainer className="engagementing-box">
+          <div style={{ gridColumn: `span 4`, fontWeight: `bold`, fontSize: rhythm(3/4)}}>
               Materials
             </div>
-              <ReadingLinkList style={{ gridColumn: `span 8`, justifyContent: `end`}}>
+              <EngagementingLinkList style={{ gridColumn: `span 8`, justifyContent: `end`}}>
                 {links.map((link, index) => {
                   return (
-                    <li className="reading-item" key={link.author}>
+                    <li className="engagementing-item" key={link.author}>
                       <a href={link.link}>{link.linkTitle}</a>
                       <small style={{ fontWeight: `bold` }}>
                         {link.author}
@@ -94,11 +95,11 @@ const ReadPostTemplate = ({ data, pageContext, location }) => {
                     </li>
                   )
                 })}
-              </ReadingLinkList>
+              </EngagementingLinkList>
         </GridContainer>
-        <ReadContent
-            dangerouslySetInnerHTML={{ __html: read.html }}
-          ></ReadContent>
+        <EngagementContent
+            dangerouslySetInnerHTML={{ __html: engagement.html }}
+          ></EngagementContent>
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -128,10 +129,10 @@ const ReadPostTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export default ReadPostTemplate
+export default EngagementPostTemplate
 
 export const pageQuery = graphql`
-  query LongReadBySlug($slug: String!) {
+  query LongEngagementBySlug($slug: String!) {
     site {
       siteMetadata {
         title

@@ -1,13 +1,5 @@
 import Typography from "typography"
 import stAnnesTheme from 'typography-theme-st-annes'
-
-// sutroTheme.overrideThemeStyles = ({ rhythm }, options) => ({
-//   'h2,h3': {
-//     marginBottom: rhythm(1/2),
-//     marginTop: rhythm(2),
-//   }
-// })
-
 const typography = new Typography(stAnnesTheme)
 // typography.options.baseFontSize = '14px';
 

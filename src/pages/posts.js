@@ -14,7 +14,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <div style={{maxWidth: rhythm(30)}}>
-      <h1>Blog</h1>
+      <h1 style={{textAlign: `center`, fontSize: rhythm(3 / 4 * 2)}}>Blog</h1>
       <SEO title="All blog posts" />
       {posts.map(({ node }) => {
         const tags = node.frontmatter.tags

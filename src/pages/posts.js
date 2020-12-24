@@ -1,40 +1,76 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
 import { rhythm } from "../utils/typography"
 import kebabCase from "lodash/kebabCase"
+import styled from 'styled-components';
+
+const ArticleIndexDiv = styled.div`
+  max-width: 800px;
+  margin: 0 ${rhythm(4)} 0 ${rhythm(1 / 2)}; 
+`
+
+const IndexHeader = styled.header`
+  margin: ${rhythm(2)} 0;
+
+  h1 {
+    text-align: left;
+    font-size: ${rhythm(3)};
+  }
+
+  hr {
+    height: ${rhythm(1/4)};
+    background: #000;
+  }
+  
+  @media (max-width: 499px) {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+`
+
+const ArticleSummaryHeader = styled.header`
+  margin-top: 0;
+  
+  h3 {
+    margin: 0;
+    color: #2B5282;
+  }
+
+`
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
-  console.log(siteTitle);
   return (
     <Layout location={location} title={siteTitle}>
-      <div style={{maxWidth: rhythm(30)}}>
-      <h1 style={{textAlign: `center`, fontSize: rhythm(3 / 4 * 2)}}>Blog</h1>
-      <SEO title="All blog posts" />
+      <ArticleIndexDiv>
+      <IndexHeader>
+        <h1>
+          Articles
+        </h1>
+        <hr></hr>
+      </IndexHeader>
+      <SEO title="Recent Articles" />
       {posts.map(({ node }) => {
         const tags = node.frontmatter.tags
         const title = node.frontmatter.title || node.fields.slug
         return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+          <article style={{margin: `${rhythm(2)} 0`}} key={node.fields.slug}>
+            <ArticleSummaryHeader>
+              <h3>
+                <Link to={node.fields.slug}>
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
+              <span><i>{node.frontmatter.date}</i></span>
+            </ArticleSummaryHeader>
             <section>
-              <p style={{marginBottom: `${rhythm(1 / 3)}`}}
+              <p style={{marginBottom: `${rhythm(1 / 2)}`}}
                 dangerouslySetInnerHTML={{
                   __html: node.frontmatter.description || node.excerpt,
                 }}
@@ -50,7 +86,7 @@ const BlogIndex = ({ data, location }) => {
           </article>
         )
       })}
-      </div>
+      </ArticleIndexDiv>
     </Layout>
   )
 }

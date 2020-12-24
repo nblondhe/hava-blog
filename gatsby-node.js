@@ -6,7 +6,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
-  const engagement = path.resolve(`./src/templates/engagement-post.js`)
   const tagTemplate = path.resolve("src/templates/tags.js")
 
   const result = await graphql(
@@ -46,7 +45,8 @@ exports.createPages = async ({ graphql, actions }) => {
   allSiteContent.forEach((content, index) => {
     const previous = index === allSiteContent.length - 1 ? null : allSiteContent[index + 1].node
     const next = index === 0 ? null : allSiteContent[index - 1].node
-    const renderComponent = content.node.fields.collection == `blog`? blogPost : engagement;
+    // const renderComponent = content.node.fields.collection == `blog`? blogPost : engagement;
+    const renderComponent = blogPost;
     createPage({
       path: content.node.fields.slug,
       component: renderComponent,

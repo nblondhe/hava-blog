@@ -1,9 +1,12 @@
 @import "./variables";
 @import "./resets";
 
-
+html, body {
+  scroll-behavior: smooth;
+}
 body {
   color: $text;
+  background: #F9F8F8;
 
   a {
     color: $link;
@@ -14,10 +17,10 @@ body {
       li {
         a {
           padding-bottom: 0.25rem;
-          &:hover,
-          &:active {
-            border-bottom: 3px solid $light-link-hover;
-          }
+          // &:hover,
+          // &:active {
+          //   border-bottom: 3px solid $light-link-hover;
+          // }
         }
       }
     }
@@ -43,7 +46,7 @@ body {
 
   .social-divider {
     border-left: 3px solid $link;
-    height: 1rem;
+    height: .75rem;
     margin-top: .5rem;
   }
 
@@ -72,8 +75,71 @@ body {
   }
 }
 
+
+// Grid setup
+.wrapper {
+  display: grid;
+  gap: 60px;
+  max-width: 1400px;
+  grid-template-areas:
+    "article"
+    "sidebar";
+
+    nav div ul.nav-list {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+.side {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: article;
+}
+
+
 a:hover,
 a:active {
   color: $light-link-hover;
-  text-decoration: none;
+  text-decoration: underline;
+}
+
+  
+@media (max-width: 499px) {
+  nav div ul.nav-list,
+  nav div ul.social-list,
+  nav div ul.article-meta-list {
+    display: flex;
+    max-width: 250px;
+    justify-content: space-between;
+  }
+  nav div ul.article-meta-list {
+    order: -1;
+  }
+  .wrapper nav div ul.nav-list {
+    margin-top: 0;
+  }
+  .wrapper {
+    grid-gap: 0;
+  }
+  .article-contents {
+    float: none;
+  }
+  section {
+    clear: both;
+  }
+
+  div.engagementing-box {
+    display: block;
+  }
+}
+
+@media (min-width: 500px) {
+  .wrapper {
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas:
+    "sidebar article";
+  }
 }

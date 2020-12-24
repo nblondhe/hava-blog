@@ -21,14 +21,13 @@ const SocialLinksList = styled.ul`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 250px; 
+  max-width: 225px; 
   text-indent: 0;
   list-style-type: none;
   padding: ${rhythm(1)} 0;
 
   li {
-    text-decoration: none;
-    font-size: ${rhythm(3 / 4)};
+    font-size: ${rhythm(2 / 3)};
   }
 `
 
@@ -51,36 +50,9 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <section style={{ maxWidth: rhythm(38), margin: `0 auto` }}>
         <LandingContent>
-          <div
+        <div
             style={{
-              padding: `${rhythm(1)}`,
-            }}
-          >
-            <Image
-              fluid={profileImage}
-              style={{
-                marginTop: rhythm(2),
-                marginBottom: rhythm(1),
-                boxShadow: `0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)`,
-              }}
-            />
-            <SocialLinksList>
-                  <li >
-                    <a href="https://www.linkedin.com/in/hava-blair/">LinkedIn</a>
-                  </li>
-                  <li className="social-divider"></li>
-                  <li style={{ marginLeft: `0` }}>
-                    <a href="https://github.com/havablair">Github</a>
-                  </li>
-                  <li className="social-divider"></li>
-                  <li>
-                    <a href={`https://twitter.com/${twitter}`}>Twitter</a>
-                  </li>
-                </SocialLinksList>
-          </div>
-          <div
-            style={{
-              padding: `${rhythm(1)}`,
+              padding: `${rhythm(.5)}`,
             }}
           >
             <div
@@ -108,19 +80,18 @@ const BlogIndex = ({ data, location }) => {
               </div>
               <div>
                 <a
-                // href={cvPDF}
-                href="#"
+                href="https://www.swac.umn.edu/directory/grad-students/hava-blair"
                 style={{
                   display: `block`,
-                  fontSize: rhythm(1),
+                  fontSize: rhythm(.75),
                   textAlign: `center`,
-                  marginTop: rhythm(2),
+                  marginTop: rhythm(1.5),
                 }}
               >
                 <span
                   style={{
                     paddingBottom: rhythm(1 / 3),
-                    border: `2px solid #8F2D56`,
+                    border: `2px solid #5688C7`,
                     padding: `.5rem 1.5rem`
                   }}
                 >
@@ -128,6 +99,44 @@ const BlogIndex = ({ data, location }) => {
                 </span>
               </a>
               </div>
+            </div>
+          </div>
+          <div
+            style={{
+              padding: `${rhythm(.5)}`,
+              // paddingTop: `${rhythm(4)}`,
+            }}
+          >
+            <div
+            style={{
+              maxWidth: `325px`,
+              // minWidth: `300px`,
+              margin: `0 auto`,
+              marginTop: `${rhythm(2.5)}`
+            }}
+            >
+
+            <Image
+              fluid={profileImage}
+              style={{
+                marginTop: rhythm(1),
+                marginBottom: rhythm(.75),
+                boxShadow: `0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)`,
+              }}
+              />
+            <SocialLinksList>
+                  <li>
+                    <a href="https://www.linkedin.com/in/hava-blair/">LinkedIn</a>
+                  </li>
+                  <li className="social-divider"></li>
+                  <li style={{ marginLeft: `0` }}>
+                    <a href="https://github.com/havablair">Github</a>
+                  </li>
+                  <li className="social-divider"></li>
+                  <li>
+                    <a href={`https://twitter.com/${twitter}`}>Twitter</a>
+                  </li>
+                </SocialLinksList>
             </div>
           </div>
         </LandingContent>
@@ -150,7 +159,7 @@ export const pageQuery = graphql`
     }
     profileImage: file(absolutePath: { regex: "/headshot.JPG/" }) {
       childImageSharp {
-        fluid(maxWidth: 600, maxHeight: 800) {
+        fluid(maxHeight: 600) {
           ...GatsbyImageSharpFluid
         }
       }

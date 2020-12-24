@@ -1,10 +1,8 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 
 const Contact = ({ location }) => {
   const data = useStaticQuery(graphql`
@@ -34,7 +32,7 @@ const Contact = ({ location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Contact" />
-      <h1>Me</h1>
+      {/* <h1>Me</h1>
       <section>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -64,7 +62,7 @@ const Contact = ({ location }) => {
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <Image fluid={data.fieldDay.childImageSharp.fluid} />
-      </section>
+      </section> */}
     </Layout>
   )
 }

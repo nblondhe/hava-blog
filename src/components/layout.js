@@ -6,7 +6,7 @@ import "./sass/layout.scss"
 import styled from 'styled-components';
 // import cvPDF from "./cv.pdf" 
 
-const SiteContainer = styled.div`
+const MainSiteContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -14,15 +14,15 @@ const SiteContainer = styled.div`
   justify-content: center;
   max-width: ${rhythm(42)};
   padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
-  padding-top: ${rhythm(3)};
+  padding-top: 0;
 `
 
-const Navigation = styled.nav`
-  margin: 0 ${rhythm(4)};
+const MainNavigation = styled.nav`
+  margin: ${rhythm(1/2)};
   
   ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 0;
     padding: 0; 
     text-indent: 0;
@@ -34,71 +34,174 @@ const Navigation = styled.nav`
     }
 
     li {
+      margin: .5rem 1rem;
       text-decoration: none;
-      font-size: ${rhythm(3/4)};
+      font-size: 1rem;
     }
   }
 `
+// TODO can be one styled component just set variable for flex-direction?
+const SidebarNavigation = styled.nav`
+  grid-area: sidebar; 
+  margin: ${rhythm(1/2)};
+  margin-left: ${rhythm(2)};
+  padding: ${rhythm(1/2)};
+  
+  div {
+    position: sticky;
+    top: 25px;
 
-const Layout = ({ location, title, children }) => {
+    ul {
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+      margin: 0 .5rem;
+      padding: 0; 
+      text-indent: 0;
+      list-style-type: none;
+      max-width: 150px;
+      
+      
+      li {
+        margin: 0 0 .75rem .5rem;
+        text-decoration: none;
+        font-size: ${rhythm(1/2)};
+      }
+      
+    }
+    
+    ul.nav-list {
+      margin-top: 4rem;
+
+      li {
+        margin: 0 0 0 .5rem;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+    }
+
+    ul.social-list {
+      li {
+        margin: 0 0 .25rem .5rem;
+      }
+    }
+  }
+
+  h5 {
+    margin-top: ${rhythm(1/3)};
+    margin-bottom: .25rem;
+  }
+
+  hr {
+    margin: 1rem 1rem;
+    max-width: 125px;
+  }
+`
+const Layout = ({ location, children, postFrontMatter }) => {
   const rootPath = `${__PATH_PREFIX__}/`
-  let maxWidth
+
+  function getCurrentArticleData() {
+    if (postFrontMatter) {
+      return (
+        <>
+          <ul className="article-meta-list">
+            <li>
+              <h5>Article</h5>
+              <span>{postFrontMatter.title}</span>
+            </li>
+            <li>
+              <h5>Published</h5>
+              <span>{postFrontMatter.date}</span>
+            </li>
+          </ul>
+
+          <hr></hr>
+        </>
+      )
+    }
+  }
   
   if (location.pathname === rootPath) {
-    maxWidth = rhythm(60)
+    return (
+      <MainSiteContainer>
+        <MainNavigation>
+          <ul>
+            <li>
+              <Link to={"/"}>
+                About
+              </Link>
+            </li>
+            <li>
+                <Link to={"/cv/"}>Curriculum Vitae</Link>
+              </li>
+            <li>
+              <Link to={"/posts/"}>
+                Articles
+              </Link>
+            </li>
+            <li>
+              <Link to={"/research/"}>
+                Research
+              </Link>
+            </li>
+          </ul>
+        </MainNavigation>
+        <main style={{margin: `0 auto`}}>
+        <div style={{maxWidth: rhythm(60)}}>
+          {children}
+          </div>
+        </main>
+      </MainSiteContainer>
+    )
   } else {
-    maxWidth = rhythm(28)
+    let currentArticle = getCurrentArticleData();
+    return (
+      <div className="wrapper">
+        <SidebarNavigation>
+          <div>
+            <ul className="nav-list">
+              <li>
+                <Link to={"/"}>About</Link>
+              </li>
+              <li>
+                <Link to={"/cv/"}>Curriculum Vitae</Link>
+              </li>
+              <li>
+              <Link to={"/research/"}>
+                Research
+              </Link>
+            </li>
+              <li>
+                <Link to={"/posts/"}>Articles</Link>
+              </li>
+              {/* <li>
+                <a href="/data-analysis">Data Analysis</a>
+              </li> */}
+            </ul>
+
+            <hr></hr>
+
+            {currentArticle}
+
+            <ul className="social-list">
+              <li>
+                <a href="https://www.linkedin.com/in/hava-blair/">LinkedIn</a>
+              </li>
+              <li>
+                <a href="https://github.com/havablair">Github</a>
+              </li>
+              <li>
+                <a href={`https://twitter.com/havablair`}>Twitter</a>
+              </li>
+            </ul>
+          </div>
+        </SidebarNavigation>
+        <main className="content" style={{ margin: `0 auto` }}>
+          <div style={{ maxWidth: rhythm(60) }}>{children}</div>
+        </main>
+      </div>
+    )
   }
-  return (
-    <SiteContainer>
-      <Navigation>
-        <ul>
-          <li>
-            <Link style={{ boxShadow: `none` }} to={"/"}>
-              Home
-            </Link>
-          </li>
-          <li>
-            {/* <a href={cvPDF}> */}
-              <span style={{ boxShadow: `none`, color: `grey` }}>
-                CV
-              </span>
-            {/* </a> */}
-          </li>
-          <li>
-            <Link style={{ boxShadow: `none` }} to={"/engagements/"}>
-              Speaking
-            </Link>
-          </li>
-          <li>
-            <span style={{ boxShadow: `none`, color: `grey` }}>
-              Publications
-            </span>
-          </li>
-          <li>
-            <Link style={{ boxShadow: `none` }} to={"/posts/"}>
-              Blog
-            </Link>
-          </li>
-        </ul>
-      </Navigation>
-      {/* <header>{header}</header> */}
-      <main style={{margin: `0 auto`}}>
-      <div style={{maxWidth: maxWidth}}>
-        {children}
-        </div>
-      </main>
-      {/* <Footer>
-          <a href="https://www.swac.umn.edu/directory/grad-students/hava-blair">
-            Hava Blair - PhD Student
-          </a>
-          <span style={{marginLeft: `3rem`}}></span>
-          <a href="https://www.swac.umn.edu/">
-            University of Minnesota - Department of Soil, Water, and Climate
-          </a>
-      </Footer> */}
-    </SiteContainer>
-  )
 }
 
 export default Layout

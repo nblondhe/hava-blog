@@ -6,7 +6,7 @@ module.exports = {
       summary: `PhD student at University of Minnesota. Excited about soil, open science, data synthesis, and effective science communication.  `,
     },
     description: `This is a description`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://havablair.com/`,
     social: {
       twitter: `HavaBlair`,
     },

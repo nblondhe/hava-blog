@@ -82,71 +82,36 @@ const Research = ({ location }) => {
           <hr></hr>
         </PostTitleHeader>
         <ContentWrapper>
-          <h2>Lorem Ipsum Incididunt ut Labore</h2>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor
-          magna eget est lorem ipsum dolor sit. Ultrices eros in cursus turpis
-          massa tincidunt dui ut ornare. Vel quam elementum pulvinar etiam non
-          quam lacus suspendisse. Proin fermentum leo vel orci porta non.
-          <h2>Press</h2>
+          <h2>Research Interests</h2>
           <ul>
             <li>
-              Pretium lectus quam id leo in vitae. Proin nibh nisl condimentum
-              id. Nulla at volutpat diam ut venenatis tellus in. Eros donec ac
-              odio tempor orci dapibus ultrices in. Pellentesque habitant morbi
-              tristique senectus et.
-            </li>
-            <li>
-              Pretium lectus quam id leo in vitae. Proin nibh nisl condimentum
-              id. Nulla at volutpat diam ut venenatis tellus in. Eros donec ac
-              odio tempor orci dapibus ultrices in. Pellentesque habitant morbi
-              tristique senectus et.
-            </li>
-            <li>
-              Pretium lectus quam id leo in vitae. Proin nibh nisl condimentum
-              id. Nulla at volutpat diam ut venenatis tellus in. Eros donec ac
-              odio tempor orci dapibus ultrices in. Pellentesque habitant morbi
-              tristique senectus et.
-            </li>
+              Dynamic soil properties for soil health assessment
+              </li>
+              <li>
+                Landscape- and regional-scale variability in dynamic soil properties
+              </li>
+              <li>
+              <a href="https://www.nature.com/articles/s41558-018-0200-3">Evidence synthesis</a> and research synthesis methods
+              </li>
+              <li>
+                Application of informatics tools and techniques in soil science
+              </li>
           </ul>
           <h2>Publications</h2>
           <ul>
             <li>
-              Pretium lectus quam id leo in vitae. Proin nibh nisl condimentum
-              id. Nulla at volutpat diam ut venenatis tellus in.
+              Jelinski, N. A., Perrone, S. V., Blair, H. K., & Fabian, M. L. (2020). Growing hearts and minds: Linking landscapes and lifescapes in a soils field course. Natural Sciences Education, 49(1), e20018-e20018. doi:10.1002/nse2.20018 
             </li>
             <li>
-              Pretium lectus quam id leo in vitae. Proin nibh nisl condimentum
-              id. Nulla at volutpat diam ut venenatis tellus in.
+              Blair, H., Kocher, M., Lafferty, M., & Gutknecht, J. L. (2020). Soil health umbrella review: Systematic evaluation of meta-analyses addressing the response of soil health indicators to agricultural management. Retrieved from osf.io/me6fd  (Pre-registration of systematic review protocol). 
             </li>
           </ul>
-          <h2>Collaborative Work</h2>
+          <h2>Press</h2>
           <ul>
             <li>
-              Pretium lectus quam id leo in vitae. Proin nibh nisl condimentum
-              id. Nulla at volutpat diam ut venenatis tellus in.
+              "Healthier soil, layer by layer".  University of Minnesota Extension - Source Magazine.  27 March 2020.  https://extension.umn.edu/source-magazine/healthier-soil-layer-layer
             </li>
           </ul>
-          <h2>Data Analysis</h2>
-          <i>Blurb about data analysis / visualization passion</i>
-          <p>
-            Pretium lectus quam id leo in vitae. Proin nibh nisl condimentum id.
-            Nulla at volutpat diam ut venenatis tellus in. Eros donec ac odio
-            tempor orci dapibus ultrices in. Pellentesque habitant morbi
-            tristique senectus et. Nulla porttitor massa id neque aliquam. Diam
-            vulputate ut pharetra sit amet aliquam id diam maecenas. Gravida cum
-            sociis natoque penatibus et magnis. Posuere ac ut consequat semper
-            viverra nam libero. Orci sagittis eu volutpat odio. Porta lorem
-            mollis aliquam ut. Vitae semper quis lectus nulla at volutpat. Diam
-            ut venenatis tellus in metus vulputate. Erat imperdiet sed euismod
-            nisi porta lorem mollis aliquam ut. Tellus molestie nunc non blandit
-            massa enim nec dui nunc. At elementum eu facilisis sed odio. Lectus
-            proin nibh nisl condimentum id venenatis. Lacinia at quis risus sed
-            vulputate odio. Ut tristique et egestas quis ipsum. Dui ut ornare
-            lectus sit amet est placerat. Mauris ultrices eros in cursus. Sit
-            amet cursus sit amet dictum sit amet justo. Proin sed libero enim
-            sed. Nec ultrices dui sapien eget mi proin.
-          </p>
         </ContentWrapper>
         <footer
           style={{

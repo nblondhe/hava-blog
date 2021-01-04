@@ -66,21 +66,11 @@ const BlogIndex = ({ data, location }) => {
                 <h3 style={{marginTop: `0`}}>PhD Student</h3>
                 <a href="mailto:blair304@umn.edu">blair304@umn.edu</a>
               </NameHeader>
-              This website provides links to webinar materials and additional
-              resources for learning how to use RMarkdown and the R programming
-              language to help you share data with many different stakeholders.
-              Specifically, we share our approach to creating individualized
-              soil health reports for farmers participating in our research
-              project. You can download the template and scripts that generate
-              our soil health reports and adapt them to your own needs. Even if
-              you don't need to create many reports at once like we did,
-              thinking about how you can use R Markdown templates and scripts to
-              automate any data analysis and reporting workflow can vastly
-              increase your efficiency.
+              I am a soil scientist with a history of working on collaborative projects in agriculture and environmental remediation.  I am currently pursuing a Ph.D. in Land and Atmospheric Science at the University of Minnesota, where I conduct on-farm research to evaluate the sensitivity and variability of dynamic soil properties used in soil health assessment.
               </div>
               <div>
                 <a
-                href="https://www.swac.umn.edu/directory/grad-students/hava-blair"
+                  href="https://drive.google.com/file/d/1rZK4zL_t-8BSIIZ8M3DLsmVm5Z8BLjJT/view?usp=sharing"
                 style={{
                   display: `block`,
                   fontSize: rhythm(.75),

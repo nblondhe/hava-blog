@@ -132,7 +132,7 @@ const Layout = ({ location, children, postFrontMatter }) => {
               </Link>
             </li>
             <li>
-                <Link to={"/cv/"}>Curriculum Vitae</Link>
+              <a href="https://drive.google.com/file/d/1rZK4zL_t-8BSIIZ8M3DLsmVm5Z8BLjJT/view">Curriculum Vitae</a>
               </li>
             <li>
               <Link to={"/posts/"}>

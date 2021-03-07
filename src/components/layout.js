@@ -132,7 +132,7 @@ const Layout = ({ location, children, postFrontMatter }) => {
               </Link>
             </li>
             <li>
-                <Link to={"/cv/"}>Curriculum Vitae</Link>
+                <a href="https://www.swac.umn.edu/directory/grad-students/hava-blair">CV</a>
               </li>
             <li>
               <Link to={"/posts/"}>
